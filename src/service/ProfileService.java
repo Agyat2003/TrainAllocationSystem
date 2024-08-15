@@ -66,6 +66,6 @@ public class ProfileService {
     }
 
     public void addProfile(Profile profile) {
-        profiles.put(profile.getLoginId(), profile);
+        profiles.put(profile.getLoginID(), profile);
     }
 }
