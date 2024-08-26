@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -30,7 +31,10 @@ public class ProfileService {
         Profile profile = profiles.get(loginId);
         if (profile != null) {
             profile.setTrainName(trainName);
+//            System.out.println("Seat Info : "+ seatInfo);
             String[] seatDetails = seatInfo.split(" ");
+
+//            System.out.println("Array : "+ Arrays.toString(seatDetails));
             profile.setBoogieNumber(Integer.parseInt(seatDetails[1]));
             profile.setSeatNumber(Integer.parseInt(seatDetails[3]));
         }

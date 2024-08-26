@@ -36,8 +36,11 @@ public class Train {
         int boogieNumber = (currentBookings /seatsPerBoogie) + 1;
         int seatNumber = (currentBookings % seatsPerBoogie) + 1;
 
+//        System.out.println("boogieNumber " + boogieNumber);
+//        System.out.println("seatNumber " + seatNumber);
+
         seatAllocations.add(loginId);
 
-        return String.format("Train: %s Boogie: %d Seat: %d" , trainName ,boogieNumber , seatNumber);
+        return String.format("%s %d %d" , trainName ,boogieNumber , seatNumber);
     }
 }

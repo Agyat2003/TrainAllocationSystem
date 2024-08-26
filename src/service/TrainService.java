@@ -3,6 +3,7 @@ package service;
 import model.Train;
 import service.ProfileService;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -24,14 +25,17 @@ public class TrainService {
 
     // Method to allocate a seat in a train
     public String allocateSeat(String loginId, String trainChoice) {
+
         if (!profileService.isProfileExist(loginId)) {
             return "Profile not found for login ID: " + loginId;
         }
 
         Train train = getTrain(trainChoice);
+
         if (train == null) {
             return "Invalid train choice: " + trainChoice;
         }
+
 
         String seatAllocationResult = train.allocateNextSeat(loginId);
         if (seatAllocationResult.startsWith("No seats")) {
@@ -39,6 +43,7 @@ public class TrainService {
         }
 
         profileService.updateProfileWithTrainInfo(loginId, trainChoice, seatAllocationResult);
+
         return "Seat allocated successfully: " + seatAllocationResult;
     }
 
@@ -66,8 +71,8 @@ public class TrainService {
     }
 
     private void initializeTrains() {
-        trains.put("Train 1", new Train("Train 1"));
-        trains.put("Train 2", new Train("Train 2"));
-        trains.put("Train 3", new Train("Train 3"));
+        trains.put("1", new Train("Train 1"));
+        trains.put("2", new Train("Train 2"));
+        trains.put("3", new Train("Train 3"));
     }
 }

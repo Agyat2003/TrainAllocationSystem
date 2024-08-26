@@ -18,7 +18,7 @@ public class InputUtil {
     // Method to get string input with a prompt
     public static String getStringInput(Scanner scanner, String prompt) {
         System.out.print(prompt + ": ");
-        return scanner.next().trim();
+        return scanner.next();
     }
 
     // Method to get string input with a prompt and a validation loop
